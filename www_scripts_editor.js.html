@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: www/scripts/editor.js</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: www/scripts/editor.js</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+/**
+ * @namespace editor
+ */
+
+var request = require("superagent"),
+    config = require("./editor.config"),
+    util = require("./util");
+
+/**
+ * @author Anthony Pizzimenti
+ * @desc Adds an image (from url) to the editor.
+ * @memberof editor
+ * @returns {undefined}
+ */
+function addImage() {
+    document.getElementById("addImage-button").addEventListener("click", function() {
+        var editor = document.getElementsByClassName("ql-editor")[0],
+            url = window.prompt("Enter the image's URL:", "http://example.com/image.png"),
+            img = new Image();
+
+        img.src = url;
+        editor.appendChild(img);
+    });
+}
+
+/**
+ * @author Anthony Pizzimenti
+ * @desc Cancels editing and returns the window to the list of posts.
+ * @memberof editor
+ * @returns {undefined}
+ */
+function cancel() {
+    document.getElementById("cancel-button").addEventListener("click", function() {
+        var cancel = window.confirm("Are you sure? All your changes will be erased, and you'll be returned to the post list.");
+        if (cancel)
+            window.location.pathname = "/posts";
+    });
+}
+
+/**
+ * @author Anthony Pizzimenti
+ * @desc Grabs the contents of the editor and passes them to the appropriate save method.
+ * @memberof editor
+ * @param {boolean} existing Is there a post with this user id already in the database?
+ * @param {number} created Time of the post's creation.
+ * @returns {undefined}
+ */
+function save(existing, created) {
+    document.getElementById("save-button").addEventListener("click", function() {
+
+        // get whatever's in the editor at save time
+        var editor = document.getElementsByClassName("ql-editor")[0],
+            title = document.querySelector("#title"),
+            subtitle = document.querySelector("#subtitle"),
+            Post = {};
+
+        if (existing) saveExistingPost(window.location.pathname.split("/")[2], Post, editor, title, subtitle, created);
+        else saveNewPost(Post, editor, title, subtitle);
+    });
+}
+
+/**
+ * @author Anthony Pizzimenti
+ * @desc Saves a new post.
+ * @memberof editor
+ * @param {object} Post The existing Post object.
+ * @param {string} editor Contents of the editor field.
+ * @param {string} title Contents of the title field.
+ * @param {string} subtitle Contents of the subtitle field.
+ * @returns {undefined}
+ */
+function saveNewPost(Post, editor, title, subtitle) {
+    if (!title.value) {
+        window.alert("Post wasn't saved - you need a title!");
+        return;
+    }
+    
+    Post.title = title.value;
+    Post.subtitle = subtitle.value ? subtitle.value : "";
+    Post.body = editor.innerHTML;
+    Post.created = Date.now();
+
+    request
+        .post("/api/posts/save")
+        .send(Post)
+        .set("Content-Type", "application/json")
+        .end(function(err, res) {
+            if (err) window.alert("Couldn't be saved.");
+            else if (res) {
+                window.alert("Saved.");
+                window.location.pathname = "/posts";
+            }
+        });
+}
+
+/**
+ * @author Anthony Pizzimenti
+ * @desc Saves an existing post.
+ * @memberof editor
+ * @param {string} id The post's database unique id.
+ * @param {object} Post A Post object.
+ * @param {string} editor Contents of the editor field
+ * @param {string} title Contents of the title field.
+ * @param {string} subtitle Contents of the subtitle field (if any).
+ * @param {number} created UNIX timestring of when the post was created.
+ * @returns {undefined}
+ */
+function saveExistingPost(id, Post, editor, title, subtitle, created) {
+    Post.title = title.value;
+    Post.subtitle = subtitle.value;
+    Post.body = editor.innerHTML;
+    Post.created = created;
+
+    request
+        .post("/api/posts/save/" + id)
+        .send(Post)
+        .set("Content-Type", "application/json")
+        .end(function(err, res) {
+            if (err) window.alert("Changes couldn't be saved. Here's why:\n" + err);
+            else if (res) {
+                window.alert("Saved.");
+                window.location.pathname = "/posts";
+            }
+        });
+}
+
+/**
+ * @author Anthony Pizzimenti
+ * @desc Retrieves a specific post.
+ * @memberof editor
+ * @param {function} callback Called when the request to /api/posts completes.
+ * @param {string} id Requested post's unique id.
+ * @returns {undefined}
+ */
+function retrievePost(callback, id) {
+    request
+        .get("/api/posts/" + id)
+        .end(function(req, res) {
+            callback(JSON.parse(res.text));
+            save(true, JSON.parse(res.text).created);
+        });
+}
+
+/**
+ * @author Anthony Pizzimenti
+ * @desc Populates the editor with existing post data.
+ * @memberof editor
+ * @param {object} data Post data.
+ * @returns {undefined}
+ */
+function populate(data) {
+    var editor = document.getElementsByClassName("ql-editor")[0],
+        title = document.getElementById("title"),
+        subtitle = document.getElementById("subtitle");
+
+    document.title = data.title + " (editing)";
+    editor.innerHTML = data.body;
+    title.value = data.title;
+    subtitle.value = data.subtitle;
+}
+
+/**
+ * @author Anthony Pizzimenti
+ * @desc Checks if there's a user logged in. If not, redirect them to the login page.
+ * @memberof editor
+ * @see editor.addImage
+ * @see editor.cancel
+ * @see editor.configureEditor
+ * @param {object} res Response from authentication server.
+ * @param {boolean} existing Is this an existing post?
+ * @returns {undefined}
+ */
+function redirectIfNotAuth(res, existing) {
+    if (res == false) window.location.pathname = "/login";
+
+    if (existing) retrievePost(populate, window.location.pathname.split("/")[2]);
+    else save(false);
+
+    addImage();
+    cancel();
+    config();
+}
+
+module.exports = function() {
+    var loc = window.location.pathname.split("/");
+    if (loc.length &lt; 3) {
+        util.onLoad("editor", function() {
+            util.checkAuth(function(user) {
+                redirectIfNotAuth(user, false);
+            });
+        });
+    } else if (loc.length >= 3 &amp;&amp; loc[1] == "editor") {
+        util.onLoad("isEditor", function() {
+            util.checkAuth(function(res) {
+                redirectIfNotAuth(res, true);
+            });
+        });
+    }
+};
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="lib.Auth.html">Auth</a></li><li><a href="lib.Post.html">Post</a></li></ul><h3>Namespaces</h3><ul><li><a href="allPosts.html">allPosts</a></li><li><a href="editor.html">editor</a></li><li><a href="index_.html">index</a></li><li><a href="lib.html">lib</a></li><li><a href="login.html">login</a></li><li><a href="post.html">post</a></li><li><a href="util.html">util</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Apr 04 2018 23:36:45 GMT-0500 (CDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

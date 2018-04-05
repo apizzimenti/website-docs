@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Home</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Home</h1>
+
+    
+
+
+
+    
+
+
+    <h3> </h3>
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+    <section>
+        <article><h1>website</h1><p>Hopefully the title of the repo is self-explanatory. This is the code for my website.</p>
+<h2>setup</h2><h3>hooking into firebase</h3><p>There's a file missing here: <code>lib/util/init.js</code>. I purposefully excluded it, as it contains the API information for firebase, and I'd rather not get compromised. So, if you want to use this site as a template, you just have to create your own. If you take a look at <a href="https://firebase.google.com/docs/database/web/start">the firebase docs</a>, you'll see that your file should look something like this (although I've edited mine for concision):</p>
+<pre class="prettyprint source"><code>var firebase = require(&quot;firebase&quot;);
+
+module.exports = function() {
+    firebase.initializeApp(
+        {
+            apiKey: &quot;&lt;api-key>&quot;,
+            authDomain: &quot;&lt;auth-domain>&quot;,
+            databaseURL: &quot;&lt;database-url>&quot;,
+            projectId: &quot;&lt;project-id>&quot;,
+            storageBucket: &quot;&lt;bucket-id>&quot;,
+        }
+    );
+};</code></pre><p>Every token you need for this file can be found <a href="https://console.firebase.google.com/u/0/">in the firebase console</a>. Again, I've excluded mine for the sake of safety.</p>
+<h3>building</h3><p>You'll also need a few things in order to run build tasks. If you take a look at the <a href="https://github.com/apizzimenti/website/blob/master/package.json"><code>package.json</code></a> file, you'll notice that I don't use build tools aside from <a href="https://webpack.js.org/">webpack</a>. Additionally, most of my build tools are either simple node commands or in <code>util.sh</code>, which is executed in <code>package.json</code>. Just make sure that you've run <code>$ npm i</code> to install everything and that your computer can execute bash files. I'll eventually be porting this to a Makefile, but for now this is what I use.</p>
+<p>There are two basic build processes: <strong>development</strong> and <strong>production</strong>. Running a development build just compiles styles and scripts so the server can spin up locally. On the other hand, production tests, cleans, builds, then copies to the <code>dist/</code> folder (which is created when a build is run). As of now, here's how each build works:</p>
+<p><strong>To run a development build</strong>, use <code>$ npm run build:dev</code>. This does a few tasks, and it'll spit a bunch of stuff out into the console. Here are the commands it runs, with subcommands noted as secondary bullets:</p>
+<ol>
+<li><code>$ npm run compile:sass</code> &rarr; compiles all the <code>.sass</code> files in the <code>www/styles</code> directory<ul>
+<li><code>$ ./util.sh sass</code> (see the <code>sass()</code> function in this file)</li>
+</ul>
+</li>
+<li><code>$ npm run compile:js:dev</code> &rarr; bundles dependencies and source script files from the <code>www/scripts</code> directory<ul>
+<li><code>$ webpack --mode development --config webpack.config.js</code> (runs in development mode so it takes less time)</li>
+</ul>
+</li>
+<li><code>$ npm run copy</code> &rarr; copies specific files in the <code>www/</code> directory to the <code>dist/</code> directory<ul>
+<li><code>$ /util.sh copy</code> (see the <code>copy()</code> function in this file)</li>
+</ul>
+</li>
+</ol>
+<p><strong>To run a production build</strong>, use <code>$ npm run build:prod</code>. It'll take a bit longer, but that's because it does way more stuff!</p>
+<ol>
+<li><code>$ npm run test</code> &rarr; runs frontend and backend tests<ul>
+<li><code>$ eslint -c ./www/.eslintrc www/scripts/**</code></li>
+<li><code>$ eslint -c ./lib/.eslintrc lib/**</code></li>
+</ul>
+</li>
+<li><code>$ npm run clean</code> &rarr; cleans out extraneous files for a clean build<ul>
+<li><code>$ rm -rf dist</code></li>
+<li><code>$ mkdir dist</code></li>
+</ul>
+</li>
+<li><code>$ npm run compile:sass</code></li>
+<li><code>$ npm run compile:js:prod</code><ul>
+<li><code>$ webpack --mode production --config webpack.config.js</code> (performs tree-shaking, minification)</li>
+</ul>
+</li>
+<li><code>$ npm run copy</code></li>
+</ol>
+<h3>serving</h3><p>To test any build (development or production), simply use the <code>$ npm run serve</code> command. This will spin up a server on <code>localhost:8080</code>.</p>
+<h2>programming</h2><h3>minimum viable product</h3><p>Adding pages to the website isn't especially hard. You only need (at minimum) one thing: an html file. Let's create a new page called <code>resources.html</code> at the path <code>/resources</code>.</p>
+<p>Firstly, create a new file called <code>resources.html</code> in the <code>www/pages</code> directory. There's a basic template for the header that you can copy from any other page, and then add content to it. It'd look something like this:</p>
+<pre class="prettyprint source"><code>############################
+# www/pages/resources.html #
+############################
+
+&lt;!DOCTYPE html>
+&lt;html lang=&quot;en&quot;>
+&lt;head>
+    &lt;meta charset=&quot;UTF-8&quot;>
+    &lt;title>Welcome :)&lt;/title>
+
+    &lt;!-- include stylesheets for the page and the header -->
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;header.css&quot;/>
+    &lt;link rel=&quot;stylesheet&quot; href=&quot;index.css&quot;/>
+
+    &lt;!-- cute favicon (that you can change) -->
+    &lt;link rel=&quot;icon&quot; href=&quot;8bit-pc.gif&quot; type=&quot;image/gif&quot;/>
+
+    &lt;!-- the first script renders math, the second is code we may edit later -->
+    &lt;script type=&quot;text/javascript&quot; src=&quot;https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML&quot;>&lt;/script>
+    &lt;script src=&quot;bundle.js&quot;>&lt;/script>
+&lt;/head>
+&lt;body>
+    &lt;div id=&quot;header&quot;>
+       &lt;h1>apizzimenti&lt;/h1>
+        &lt;ul id=&quot;menu&quot;>
+            &lt;li class=&quot;listitem&quot;>&lt;a href=&quot;/&quot;>Home&lt;/a>&lt;/li>
+            &lt;li class=&quot;listitem&quot;>&lt;a href=&quot;/contact&quot;>Contact&lt;/a>&lt;/li>
+            &lt;li class=&quot;listitem&quot;>&lt;a href=&quot;/posts&quot;>Posts&lt;/a>&lt;/li>
+            &lt;li class=&quot;listitem&quot;>&lt;a href=&quot;/editor&quot;>Editor&lt;/a>&lt;/li>
+            &lt;li class=&quot;listitem&quot;>&lt;a id=&quot;login&quot; href=&quot;/login&quot;>Log In&lt;/a>&lt;/li>
+        &lt;/ul>
+    &lt;/div>
+    &lt;div id=&quot;stage&quot;>
+        &lt;!-- write our list of resources here! -->
+    &lt;/div>
+    &lt;div class=&quot;spacer&quot;>&lt;/div>
+&lt;/body>
+&lt;/html></code></pre><p>And we have our template! Next, we have to edit the <code>lib/routes</code> file so that our page actually gets served:</p>
+<pre class="prettyprint source"><code>#################
+# lib/routes.js #
+#################
+
+var path = require(&quot;path&quot;),
+    db = require(&quot;./db&quot;);
+
+function routes(app) {
+    var Posts = new db.Posts(),
+        Auth = new db.Auth(),
+
+        // actual pages
+        index = path.resolve(__dirname, &quot;../pages/index.html&quot;),
+        ...
+        resources = path.resolve(__dirname, &quot;../pages/resources.html&quot;),
+        ...
+
+        // page urls
+        indexUrl = app.route(&quot;/&quot;),
+        ...
+        resourcesUrl = app.route(&quot;/resources&quot;),
+        ...
+
+    // pages
+    indexUrl.get(function(req, res) {
+        res.sendFile(index);
+    });
+    ...
+    resourcesUrl.get(function (req, res) {
+        res.sendFile(resources)
+    });
+    ...
+}</code></pre><p>And there we go! Your page gets added.</p>
+<h3>scripting</h3><p>Now say that we want to add some javascript to this page. We'll create a new script for it in the <code>lib/scripts</code> directory and call it <code>resources.js</code>.</p>
+<pre class="prettyprint source"><code>############################
+# www/scripts/resources.js #
+############################
+
+// import the util file, as it's required to load the page
+var util = require(&quot;./util&quot;),
+    ...
+
+// function that initializes everything you want to do on the page
+function main() { ... }
+
+/*
+    Export our function and say that it'll run only when we're on the resources page.
+    Please read the docs for util.onLoad() and util.checkAuth(), as there are some pages
+    (especially those with changing titles, like /posts/&lt;post_id>) that must be handled
+    specifically. For this case, though, sayHello() will run automatically.
+*/
+module.exports = function () {
+    util.onLoad(&quot;resources&quot;, function() {
+        /*
+            There are two scenarios: either your content relies on a user being logged
+            in, or it doesn't. Here's the first scenario, where there's a login required:
+        */
+        util.checkAuth(function(user) {
+            if (user) main()                            // if there's a user logged in, do your thing!
+            else window.location.pathname = &quot;/login&quot;    // otherwise, redirect the user
+        });
+
+        /*
+            Here's the second scenario. In this case, we don't have to write a callback for
+            util.checkAuth(), we just give it a function that does nothing and then call
+            main() regardless.
+        */
+        util.checkAuth(function(u){ +u}) // the callback can be any function at all
+        main()                          // call our main() function!
+    });
+};</code></pre><p>Then, we edit the <code>www/index.js</code> file to include our page:</p>
+<pre class="prettyprint source"><code>################
+# www/index.js #
+################
+
+var login = require(&quot;./login&quot;),
+    ...
+    resources = require(&quot;./resources&quot;),
+    ...
+
+login();
+...
+resources();
+...</code></pre><p>And we're done! For more examples of how to write and include more complex javascript, look at any of the javascript files in the <code>www/scripts</code> directory. However, there's a simpler way to do this (if the <code>/resources</code> page doesn't have any need for complex javascript). We can simply omit creating the <code>www/scripts/resources.js</code> file, and edit <code>www/index.js</code>:</p>
+<pre class="prettyprint source"><code>################
+# www/index.js #
+################
+
+
+var login = require(&quot;./login&quot;),
+    ...
+
+function u(u) { +u; }
+
+util.onLoad(&quot;&quot;, function() {
+    util.checkAuth(u);
+});
+
+util.onLoad(&quot;resources&quot;, function() {
+    util.checkAuth(u);
+});
+
+...
+</code></pre><p><a href="http://apizzimenti.github.io/site-docs">Always, always check the docs</a> to make sure that everything is squared away.</p>
+<h2>hosting</h2><p>I use Amazon's AWS for hosting. I have an EC2 instance running server code which links out to firebase anytime it needs data. All traffic is routed through there.</p>
+<h2>documentation</h2><p>Make sure to document your work. If I accept pull requests, I'll write the jsdoc stuff myself (so we aren't cluttered with documentation).</p></article>
+    </section>
+
+
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Classes</h3><ul><li><a href="lib.Auth.html">Auth</a></li><li><a href="lib.Post.html">Post</a></li></ul><h3>Namespaces</h3><ul><li><a href="allPosts.html">allPosts</a></li><li><a href="editor.html">editor</a></li><li><a href="index_.html">index</a></li><li><a href="lib.html">lib</a></li><li><a href="login.html">login</a></li><li><a href="post.html">post</a></li><li><a href="util.html">util</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.5.5</a> on Wed Apr 04 2018 23:36:45 GMT-0500 (CDT)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Global - Documentation</title>
+    <title>editor - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">Global</h1>
+    <h1 class="page-title">editor</h1>
     
 
     
@@ -42,7 +42,7 @@
 <header>
     
         <h2>
-        
+        editor
         </h2>
         
     
@@ -83,6 +83,11 @@
     
 
     
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="www_scripts_editor.js.html">www/scripts/editor.js</a>, <a href="www_scripts_editor.js.html#line2">line 2</a>
+    </li></ul></dd>
+    
 
     
 
@@ -107,81 +112,6 @@
     
 
     
-        <h3 class="subsection-title">Members</h3>
-
-        
-            
-<div class="section-members">
-<h4 class="name" id="editor"><span class="type-signature"></span>editor<span class="type-signature"></span></h4>
-
-
-
-
-<div class="description">
-    Saves a thought.
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li>Anthony Pizzimenti</li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="www_scripts_editor.js.html">www/scripts/editor.js</a>, <a href="www_scripts_editor.js.html#line187">line 187</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-</div>
-
-        
-    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -192,14 +122,14 @@
 
     
 
-    <h4 class="name" id="doNotTrack"><span class="type-signature"></span>doNotTrack<span class="signature">()</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+    <h4 class="name" id=".addImage"><span class="type-signature">(static) </span>addImage<span class="signature">()</span><span class="type-signature"> &rarr; {undefined}</span></h4>
 
     
 
 
 
 <div class="description">
-    Attempts to protect my page from analytics tracking.
+    Adds an image (from url) to the editor.
 </div>
 
 
@@ -242,7 +172,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="www_scripts_home.js.html">www/scripts/home.js</a>, <a href="www_scripts_home.js.html#line13">line 13</a>
+        <a href="www_scripts_editor.js.html">www/scripts/editor.js</a>, <a href="www_scripts_editor.js.html#line16">line 16</a>
     </li></ul></dd>
     
 
@@ -303,14 +233,14 @@
 
     
 
-    <h4 class="name" id="login"><span class="type-signature"></span>login<span class="signature">(Auth, app)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+    <h4 class="name" id=".cancel"><span class="type-signature">(static) </span>cancel<span class="signature">()</span><span class="type-signature"> &rarr; {undefined}</span></h4>
 
     
 
 
 
 <div class="description">
-    Sets up the api routes for logging in.
+    Cancels editing and returns the window to the list of posts.
 </div>
 
 
@@ -353,7 +283,229 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_routes_login.js.html">lib/routes/login.js</a>, <a href="lib_routes_login.js.html#line9">line 9</a>
+        <a href="www_scripts_editor.js.html">www/scripts/editor.js</a>, <a href="www_scripts_editor.js.html#line33">line 33</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>undefined</code></span>
+
+
+    </dd>
+</dl>
+
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id=".configureEditor"><span class="type-signature">(static) </span>configureEditor<span class="signature">()</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Configures an editor object on the editor page.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Anthony Pizzimenti</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="www_scripts_editor.config.js.html">www/scripts/editor.config.js</a>, <a href="www_scripts_editor.config.js.html#line16">line 16</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>undefined</code></span>
+
+
+    </dd>
+</dl>
+
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id=".populate"><span class="type-signature">(static) </span>populate<span class="signature">(data)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Populates the editor with existing post data.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Anthony Pizzimenti</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="www_scripts_editor.js.html">www/scripts/editor.js</a>, <a href="www_scripts_editor.js.html#line153">line 153</a>
     </li></ul></dd>
     
 
@@ -397,13 +549,13 @@
 
         <tr>
             
-                <td class="name"><code>Auth</code></td>
+                <td class="name"><code>data</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code><a href="lib.Auth.html">lib.Auth</a></code></span>
+<span class="param-type"><code>object</code></span>
 
 
             
@@ -414,33 +566,7 @@
             
 
             <td class="description last">
-                Authentication module.
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>app</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>express</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                Express application.
+                Post data.
                 
             </td>
         </tr>
@@ -492,14 +618,14 @@
 
     
 
-    <h4 class="name" id="pages"><span class="type-signature"></span>pages<span class="signature">(app)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+    <h4 class="name" id=".redirectIfNotAuth"><span class="type-signature">(static) </span>redirectIfNotAuth<span class="signature">(res, existing)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
 
     
 
 
 
 <div class="description">
-    Sets up routing for static pages.
+    Checks if there's a user logged in. If not, redirect them to the login page.
 </div>
 
 
@@ -542,12 +668,23 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_routes_pages.js.html">lib/routes/pages.js</a>, <a href="lib_routes_pages.js.html#line10">line 10</a>
+        <a href="www_scripts_editor.js.html">www/scripts/editor.js</a>, <a href="www_scripts_editor.js.html#line175">line 175</a>
     </li></ul></dd>
     
 
     
 
+    
+    <dt class="tag-see">See:</dt>
+    <dd class="tag-see">
+        <ul>
+            <li><a href="global.html#editor#.addImage">editor.addImage</a></li>
+        
+            <li><a href="global.html#editor#.cancel">editor.cancel</a></li>
+        
+            <li><a href="global.html#editor#.configureEditor">editor.configureEditor</a></li>
+        </ul>
+    </dd>
     
 
     
@@ -586,13 +723,13 @@
 
         <tr>
             
-                <td class="name"><code>app</code></td>
+                <td class="name"><code>res</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>express</code></span>
+<span class="param-type"><code>object</code></span>
 
 
             
@@ -603,7 +740,33 @@
             
 
             <td class="description last">
-                Express application.
+                Response from authentication server.
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>existing</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>boolean</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Is this an existing post?
                 
             </td>
         </tr>
@@ -655,14 +818,14 @@
 
     
 
-    <h4 class="name" id="posts"><span class="type-signature"></span>posts<span class="signature">(Posts, app)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+    <h4 class="name" id=".retrievePost"><span class="type-signature">(static) </span>retrievePost<span class="signature">(callback, id)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
 
     
 
 
 
 <div class="description">
-    Sets up routing for the posts api.
+    Retrieves a specific post.
 </div>
 
 
@@ -705,7 +868,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_routes_posts.js.html">lib/routes/posts.js</a>, <a href="lib_routes_posts.js.html#line9">line 9</a>
+        <a href="www_scripts_editor.js.html">www/scripts/editor.js</a>, <a href="www_scripts_editor.js.html#line137">line 137</a>
     </li></ul></dd>
     
 
@@ -749,13 +912,13 @@
 
         <tr>
             
-                <td class="name"><code>Posts</code></td>
+                <td class="name"><code>callback</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>lib.Posts</code></span>
+<span class="param-type"><code>function</code></span>
 
 
             
@@ -766,7 +929,7 @@
             
 
             <td class="description last">
-                Posts module.
+                Called when the request to /api/posts completes.
                 
             </td>
         </tr>
@@ -775,13 +938,13 @@
 
         <tr>
             
-                <td class="name"><code>app</code></td>
+                <td class="name"><code>id</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>express</code></span>
+<span class="param-type"><code>string</code></span>
 
 
             
@@ -792,7 +955,7 @@
             
 
             <td class="description last">
-                Express app.
+                Requested post's unique id.
                 
             </td>
         </tr>
@@ -844,14 +1007,14 @@
 
     
 
-    <h4 class="name" id="thoughts"><span class="type-signature"></span>thoughts<span class="signature">(Thoughts, app)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+    <h4 class="name" id=".save"><span class="type-signature">(static) </span>save<span class="signature">(existing, created)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
 
     
 
 
 
 <div class="description">
-    Sets up routing for the thoughts api.
+    Grabs the contents of the editor and passes them to the appropriate save method.
 </div>
 
 
@@ -894,7 +1057,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="lib_routes_thoughts.js.html">lib/routes/thoughts.js</a>, <a href="lib_routes_thoughts.js.html#line9">line 9</a>
+        <a href="www_scripts_editor.js.html">www/scripts/editor.js</a>, <a href="www_scripts_editor.js.html#line49">line 49</a>
     </li></ul></dd>
     
 
@@ -938,13 +1101,13 @@
 
         <tr>
             
-                <td class="name"><code>Thoughts</code></td>
+                <td class="name"><code>existing</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>lib.Thoughts</code></span>
+<span class="param-type"><code>boolean</code></span>
 
 
             
@@ -955,7 +1118,7 @@
             
 
             <td class="description last">
-                Thoughts module.
+                Is there a post with this user id already in the database?
                 
             </td>
         </tr>
@@ -964,13 +1127,13 @@
 
         <tr>
             
-                <td class="name"><code>app</code></td>
+                <td class="name"><code>created</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>express</code></span>
+<span class="param-type"><code>number</code></span>
 
 
             
@@ -981,7 +1144,541 @@
             
 
             <td class="description last">
-                Express app.
+                Time of the post's creation.
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>undefined</code></span>
+
+
+    </dd>
+</dl>
+
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id=".saveExistingPost"><span class="type-signature">(static) </span>saveExistingPost<span class="signature">(id, Post, editor, title, subtitle, created)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Saves an existing post.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Anthony Pizzimenti</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="www_scripts_editor.js.html">www/scripts/editor.js</a>, <a href="www_scripts_editor.js.html#line109">line 109</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                The post's database unique id.
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>Post</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                A Post object.
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>editor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Contents of the editor field
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>title</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Contents of the title field.
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>subtitle</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Contents of the subtitle field (if any).
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>created</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                UNIX timestring of when the post was created.
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>undefined</code></span>
+
+
+    </dd>
+</dl>
+
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id=".saveNewPost"><span class="type-signature">(static) </span>saveNewPost<span class="signature">(Post, editor, title, subtitle)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Saves a new post.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Anthony Pizzimenti</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="www_scripts_editor.js.html">www/scripts/editor.js</a>, <a href="www_scripts_editor.js.html#line73">line 73</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>Post</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>object</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                The existing Post object.
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>editor</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Contents of the editor field.
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>title</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Contents of the title field.
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>subtitle</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Contents of the subtitle field.
                 
             </td>
         </tr>

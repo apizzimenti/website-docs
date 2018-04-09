@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>post - Documentation</title>
+    <title>thoughts - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,7 +29,7 @@
 
 <div id="main">
     
-    <h1 class="page-title">post</h1>
+    <h1 class="page-title">thoughts</h1>
     
 
     
@@ -42,7 +42,7 @@
 <header>
     
         <h2>
-        post
+        thoughts
         </h2>
         
     
@@ -85,7 +85,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="www_scripts_post.js.html">www/scripts/post.js</a>, <a href="www_scripts_post.js.html#line2">line 2</a>
+        <a href="www_scripts_thoughts.js.html">www/scripts/thoughts.js</a>, <a href="www_scripts_thoughts.js.html#line2">line 2</a>
     </li></ul></dd>
     
 
@@ -122,14 +122,14 @@
 
     
 
-    <h4 class="name" id=".displayEditIfAuth"><span class="type-signature">(static) </span>displayEditIfAuth<span class="signature">(user)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+    <h4 class="name" id=".addDelete"><span class="type-signature">(static) </span>addDelete<span class="signature">(date, id)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
 
     
 
 
 
 <div class="description">
-    Displays an (edit) link if there's a user logged in.
+    Adds a delete button to a Thought if a user is logged in.
 </div>
 
 
@@ -172,19 +172,12 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="www_scripts_post.js.html">www/scripts/post.js</a>, <a href="www_scripts_post.js.html#line67">line 67</a>
+        <a href="www_scripts_thoughts.js.html">www/scripts/thoughts.js</a>, <a href="www_scripts_thoughts.js.html#line113">line 113</a>
     </li></ul></dd>
     
 
     
 
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="post.html#.getPostData">post.getPostData</a></li>
-        </ul>
-    </dd>
     
 
     
@@ -223,13 +216,13 @@
 
         <tr>
             
-                <td class="name"><code>user</code></td>
+                <td class="name"><code>date</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>object</code></span>
+<span class="param-type"><code>HTMLParagraphElement</code></span>
 
 
             
@@ -240,7 +233,33 @@
             
 
             <td class="description last">
-                A google user object.
+                The date portion of a Thought's container.
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Unique db id for the Thought.
                 
             </td>
         </tr>
@@ -292,14 +311,14 @@
 
     
 
-    <h4 class="name" id=".displayPost"><span class="type-signature">(static) </span>displayPost<span class="signature">(data, loggedIn)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+    <h4 class="name" id=".createLevel"><span class="type-signature">(static) </span>createLevel<span class="signature">(chunk, loggedIn)</span><span class="type-signature"> &rarr; {HTMLDivElement}</span></h4>
 
     
 
 
 
 <div class="description">
-    Populates the page with retrieved post data.
+    Creates a new level and assigns Thoughts.
 </div>
 
 
@@ -342,7 +361,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="www_scripts_post.js.html">www/scripts/post.js</a>, <a href="www_scripts_post.js.html#line34">line 34</a>
+        <a href="www_scripts_thoughts.js.html">www/scripts/thoughts.js</a>, <a href="www_scripts_thoughts.js.html#line53">line 53</a>
     </li></ul></dd>
     
 
@@ -386,13 +405,13 @@
 
         <tr>
             
-                <td class="name"><code>data</code></td>
+                <td class="name"><code>chunk</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><code>object</code></span>
+<span class="param-type"><code>Array.&lt;object></code></span>
 
 
             
@@ -403,7 +422,7 @@
             
 
             <td class="description last">
-                Post data.
+                A chunk of one or two Thought objects.
                 
             </td>
         </tr>
@@ -418,6 +437,590 @@
             <td class="type">
             
                 
+<span class="param-type"><code>object</code></span>
+|
+
+<span class="param-type"><code>boolean</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Is there a user logged in?
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>HTMLDivElement</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    A wrapper for one or two Thoughts.
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id=".createThought"><span class="type-signature">(static) </span>createThought<span class="signature">(Thought, right, loggedIn)</span><span class="type-signature"> &rarr; {HTMLDivElement}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Creates a thought container to be appended to a level.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Anthony Pizzimenti</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="www_scripts_thoughts.js.html">www/scripts/thoughts.js</a>, <a href="www_scripts_thoughts.js.html#line77">line 77</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>Thought</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code><a href="lib.Thought.html">lib.Thought</a></code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                A Thought object from the db.
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>right</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>number</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Is this the right thought?
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>loggedIn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>object</code></span>
+|
+
+<span class="param-type"><code>boolean</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Is there a user logged in?
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>HTMLDivElement</code></span>
+
+
+    </dd>
+</dl>
+
+
+<div class="param-desc">
+    A container for a Thought.
+</div>
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id=".deleteThought"><span class="type-signature">(static) </span>deleteThought<span class="signature">(id)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Deletes the Thought.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Anthony Pizzimenti</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="www_scripts_thoughts.js.html">www/scripts/thoughts.js</a>, <a href="www_scripts_thoughts.js.html#line125">line 125</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>id</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>string</code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Unique db id for the Thought.
+                
+            </td>
+        </tr>
+
+    
+    </tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="section-returns">
+<h5>Returns:</h5>
+
+        
+
+<dl class="param-type">
+    <dt>
+        Type:
+    </dt>
+    <dd>
+        
+<span class="param-type"><code>undefined</code></span>
+
+
+    </dd>
+</dl>
+
+
+    
+</div>
+
+
+
+</div>
+        
+            
+<div class="section-method">
+
+    
+
+    <h4 class="name" id=".displayThoughts"><span class="type-signature">(static) </span>displayThoughts<span class="signature">(thoughts, loggedIn)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+
+    
+
+
+
+<div class="description">
+    Appends thought levels to the stage.
+</div>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-author">Author:</dt>
+    <dd class="tag-author">
+        <ul>
+            <li>Anthony Pizzimenti</li>
+        </ul>
+    </dd>
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="www_scripts_thoughts.js.html">www/scripts/thoughts.js</a>, <a href="www_scripts_thoughts.js.html#line34">line 34</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+
+
+
+    <h5>Parameters:</h5>
+    
+
+<table class="params">
+    <thead>
+    <tr>
+        
+        <th>Name</th>
+        
+
+        <th>Type</th>
+
+        
+
+        
+
+        <th class="last">Description</th>
+    </tr>
+    </thead>
+
+    <tbody>
+    
+
+        <tr>
+            
+                <td class="name"><code>thoughts</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>Array.&lt;object></code></span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">
+                Array of Thoughts sorted by creation date.
+                
+            </td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>loggedIn</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type"><code>object</code></span>
+|
+
 <span class="param-type"><code>boolean</code></span>
 
 
@@ -481,14 +1084,14 @@
 
     
 
-    <h4 class="name" id=".getPostData"><span class="type-signature">(static) </span>getPostData<span class="signature">(callback, loggedIn)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
+    <h4 class="name" id=".thoughts"><span class="type-signature">(static) </span>thoughts<span class="signature">(loggedIn)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
 
     
 
 
 
 <div class="description">
-    Gets data for a specific post.
+    Parent function for the thoughts namespace.
 </div>
 
 
@@ -531,7 +1134,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="www_scripts_post.js.html">www/scripts/post.js</a>, <a href="www_scripts_post.js.html#line17">line 17</a>
+        <a href="www_scripts_thoughts.js.html">www/scripts/thoughts.js</a>, <a href="www_scripts_thoughts.js.html#line17">line 17</a>
     </li></ul></dd>
     
 
@@ -575,38 +1178,15 @@
 
         <tr>
             
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>function</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                Called when the request to /api/posts/<id> returns.
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
                 <td class="name"><code>loggedIn</code></td>
             
 
             <td class="type">
             
                 
+<span class="param-type"><code>object</code></span>
+|
+
 <span class="param-type"><code>boolean</code></span>
 
 
@@ -618,7 +1198,7 @@
             
 
             <td class="description last">
-                Is there a user logged in?
+                Is there a user object logged in?
                 
             </td>
         </tr>

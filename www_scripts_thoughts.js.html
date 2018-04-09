@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>post - Documentation</title>
+    <title>www/scripts/thoughts.js - Documentation</title>
 
     <script src="scripts/prettify/prettify.js"></script>
     <script src="scripts/prettify/lang-css.js"></script>
@@ -29,650 +29,161 @@
 
 <div id="main">
     
-    <h1 class="page-title">post</h1>
-    
-
-    
-
-
-
-
-<section>
-
-<header>
-    
-        <h2>
-        post
-        </h2>
-        
-    
-</header>
-
-<article>
-    <div class="container-overview">
-    
-        
-
-        
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="www_scripts_post.js.html">www/scripts/post.js</a>, <a href="www_scripts_post.js.html#line2">line 2</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-        
-    
-    </div>
-
-    
-
-    
-
-    
-
-     
-
-    
-
-    
-
-    
-        <h3 class="subsection-title">Methods</h3>
-
-        
-            
-<div class="section-method">
-
-    
-
-    <h4 class="name" id=".displayEditIfAuth"><span class="type-signature">(static) </span>displayEditIfAuth<span class="signature">(user)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Displays an (edit) link if there's a user logged in.
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li>Anthony Pizzimenti</li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="www_scripts_post.js.html">www/scripts/post.js</a>, <a href="www_scripts_post.js.html#line67">line 67</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-    <dt class="tag-see">See:</dt>
-    <dd class="tag-see">
-        <ul>
-            <li><a href="post.html#.getPostData">post.getPostData</a></li>
-        </ul>
-    </dd>
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>user</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>object</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                A google user object.
-                
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
-
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>undefined</code></span>
-
-
-    </dd>
-</dl>
-
-
-    
-</div>
-
-
-
-</div>
-        
-            
-<div class="section-method">
-
-    
-
-    <h4 class="name" id=".displayPost"><span class="type-signature">(static) </span>displayPost<span class="signature">(data, loggedIn)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Populates the page with retrieved post data.
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li>Anthony Pizzimenti</li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="www_scripts_post.js.html">www/scripts/post.js</a>, <a href="www_scripts_post.js.html#line34">line 34</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>data</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>object</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                Post data.
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>loggedIn</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>boolean</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                Is there a user logged in?
-                
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
-
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>undefined</code></span>
-
-
-    </dd>
-</dl>
-
-
-    
-</div>
-
-
-
-</div>
-        
-            
-<div class="section-method">
-
-    
-
-    <h4 class="name" id=".getPostData"><span class="type-signature">(static) </span>getPostData<span class="signature">(callback, loggedIn)</span><span class="type-signature"> &rarr; {undefined}</span></h4>
-
-    
-
-
-
-<div class="description">
-    Gets data for a specific post.
-</div>
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-author">Author:</dt>
-    <dd class="tag-author">
-        <ul>
-            <li>Anthony Pizzimenti</li>
-        </ul>
-    </dd>
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="www_scripts_post.js.html">www/scripts/post.js</a>, <a href="www_scripts_post.js.html#line17">line 17</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>callback</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>function</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                Called when the request to /api/posts/<id> returns.
-                
-            </td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>loggedIn</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type"><code>boolean</code></span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">
-                Is there a user logged in?
-                
-            </td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div class="section-returns">
-<h5>Returns:</h5>
-
-        
-
-<dl class="param-type">
-    <dt>
-        Type:
-    </dt>
-    <dd>
-        
-<span class="param-type"><code>undefined</code></span>
-
-
-    </dd>
-</dl>
-
-
-    
-</div>
-
-
-
-</div>
-        
-    
-
-    
-
-    
-</article>
-
-</section>
+    <h1 class="page-title">www/scripts/thoughts.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>
+/**
+ * @namespace thoughts
+ */
+
+var funk = require("da_funk"),
+    request = require("superagent"),
+    util = require("./util");
+
+/**
+ * @author Anthony Pizzimenti
+ * @desc Parent function for the thoughts namespace.
+ * @memberof thoughts
+ * @param {object|boolean} loggedIn Is there a user object logged in?
+ * @returns {undefined}
+ */
+function thoughts(loggedIn) {
+    request
+        .get("/api/thoughts")
+        .end(function(err, res) {
+            if (err) console.warn(`Error fetching thoughts. Here's why: \n\n${err}`);
+            else displayThoughts(JSON.parse(res.text).thoughts.reverse(), loggedIn);
+        });
+}
+
+/**
+ * @author Anthony Pizzimenti
+ * @desc Appends thought levels to the stage.
+ * @memberof thoughts
+ * @param {object[]} thoughts Array of Thoughts sorted by creation date.
+ * @param {object|boolean} loggedIn Is there a user logged in?
+ * @returns {undefined}
+ */
+function displayThoughts(thoughts, loggedIn) {
+    var chunks = funk.methods.group(thoughts, 2),
+        stage = document.getElementById("stage"),
+        chunk, level;
+
+    for (chunk of chunks) {
+        level = createLevel(chunk, loggedIn);
+        stage.appendChild(level);
+    }
+}
+
+/**
+ * @author Anthony Pizzimenti
+ * @desc Creates a new level and assigns Thoughts.
+ * @memberof thoughts
+ * @param {object[]} chunk A chunk of one or two Thought objects.
+ * @param {object|boolean} loggedIn Is there a user logged in?
+ * @returns {HTMLDivElement} A wrapper for one or two Thoughts.
+ */
+function createLevel(chunk, loggedIn) {
+    var level = document.createElement("div"),
+        thought, i;
+
+    // assign css class
+    level.className = "level-container";
+
+    for (i=0; i &lt; chunk.length; i++) {
+        thought = createThought(chunk[i], i, loggedIn);
+        level.appendChild(thought);
+    }
+
+    return level;
+}
+
+/**
+ * @author Anthony Pizzimenti
+ * @desc Creates a thought container to be appended to a level.
+ * @memberof thoughts
+ * @param {lib.Thought} Thought A Thought object from the db.
+ * @param {number} right Is this the right thought?
+ * @param {object|boolean} loggedIn Is there a user logged in?
+ * @returns {HTMLDivElement} A container for a Thought.
+ */
+function createThought(Thought, right, loggedIn) {
+    var thought = document.createElement("div"),
+        thoughtBody = document.createElement("p"),
+        thoughtDate = document.createElement("p"),
+        opts = {
+            hour: "2-digit",
+            minute: "2-digit",
+            month: "long",
+            day: "numeric"
+        };
+
+    // create new elements, assign css classes, append stuff
+    thoughtBody.innerText = Thought.body;
+    thoughtBody.className = "thought";
+    thoughtDate.innerText = new Date(Thought.created).toLocaleDateString("en-EN", opts);
+
+    // if there's a user logged in, give them a delete button!
+    if (loggedIn) addDelete(thoughtDate, Thought.id);
+
+    thought.appendChild(thoughtBody);
+    thought.appendChild(thoughtDate);
+
+    if (!right) thought.className = "level-left";
+    else thought.className = "level-right";
+
+    return thought;
+}
+
+/**
+ * @author Anthony Pizzimenti
+ * @desc Adds a delete button to a Thought if a user is logged in.
+ * @memberof thoughts
+ * @param {HTMLParagraphElement} date The date portion of a Thought's container.
+ * @param {string} id Unique db id for the Thought.
+ * @returns {undefined}
+ */
+function addDelete(date, id) {
+    var button = `&lt;button onClick="window.deleteThought('${id}')">&amp;#8855;&lt;/button>`;
+    date.innerHTML = button + date.innerText;
+}
+
+/**
+ * @author Anthony Pizzimenti
+ * @desc Deletes the Thought.
+ * @memberof thoughts
+ * @param {string} id Unique db id for the Thought.
+ * @returns {undefined}
+ */
+function deleteThought(id) {
+    request
+        .delete(`/api/thoughts/${id}`)
+        .end(function(err, res) {
+            if (err) window.alert(`Thought couldn't be deleted. Here's why:\n\n${err}`);
+            else {
+                window.alert("Thought deleted.");
+                window.location.reload();
+            }
+        });
+}
+
+module.exports = function() {
+    util.onLoad("thoughts", function() {
+        util.checkAuth(thoughts);
+        window.deleteThought = deleteThought;
+    });
+};
+</code></pre>
+        </article>
+    </section>
 
 
 
